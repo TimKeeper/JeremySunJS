@@ -117,6 +117,8 @@
     ]
   },
   "devDependencies": {
+    "antd": "^3.16.3",
+    "node-sass": "^4.11.0",
     "react-router": "^5.0.0",
     "react-router-dom": "^5.0.0"
   }
