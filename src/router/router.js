@@ -1,7 +1,13 @@
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 import React, { PureComponent, Suspense, lazy } from 'react'
-const Home = lazy(() => import('../compontents/home/index'))
-const About = lazy(() => import('../compontents/about/index'))
+// const IndexComponent = lazy(() => import('../compontents/index'))
+// const First = lazy(() => import('../compontents/first/index'))
+// const Second = lazy(() => import('../compontents/second/index'))
+// const Third = lazy(() => import('../compontents/third/index'))
+import Home from '../compontents/home/index'
+import First from '../compontents/first/index'
+import Second from '../compontents/second/index'
+import Third from '../compontents/third/index'
 
 
 
@@ -10,10 +16,11 @@ export default class AppRouter extends PureComponent {
 		return (
 			<Router>
 				<Suspense fallback={<div>Loading...</div>}>
-					<Switch>
-						<Route exact path="/" component={Home}/>
-						<Route path="/about" component={About}/>
-					</Switch>
+					<Home>
+						<Route exact path="/" component={First}/>
+						<Route path="/second" component={Second}/>
+						<Route path="/third" component={Third}/>
+					</Home>
 				</Suspense>
 			</Router>
 		)

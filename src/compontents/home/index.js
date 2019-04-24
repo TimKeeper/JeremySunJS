@@ -1,5 +1,6 @@
 import React, { PureComponent } from 'react'
-import {Layout, Menu, Breadcrumb, Icon} from 'antd'
+import { Link } from 'react-router-dom'
+import {Layout, Menu, Icon} from 'antd'
 import './index.css'
 const {Header, Content, Footer, Sider} = Layout
 const SubMenu = Menu.SubMenu
@@ -18,7 +19,8 @@ export default class Home extends PureComponent {
   }
   
   changeRoute = (route) => {
-    this.props.history.push(route.key) 
+    // this.props.history.push(route.key)
+    console.log(route) 
   }
 	
 	render () {
@@ -29,19 +31,15 @@ export default class Home extends PureComponent {
           collapsed={this.state.collapsed}
           onCollapse={this.onCollapse}
         >
-          <div className="logo" />
+          <Link to='/' className="logo">JeremySun</Link>
           <Menu theme="dark" defaultSelectedKeys={['1']} mode="inline" onClick={this.changeRoute}>
-            <Menu.Item key="home">
-              <Icon type="desktop" />
-              <span>Option 2</span>
-            </Menu.Item>
             <SubMenu
               key="sub1"
               title={<span><Icon type="user" /><span>User</span></span>}
             >
-              <Menu.Item key="about">Tom</Menu.Item>
-              <Menu.Item key="4">Bill</Menu.Item>
-              <Menu.Item key="5">Alex</Menu.Item>
+              <Menu.Item key="about"><Link to='/first'>first</Link></Menu.Item>
+              <Menu.Item key="4"><Link to='/second'>second</Link></Menu.Item>
+              <Menu.Item key="5"><Link to='/third'>third</Link></Menu.Item>
             </SubMenu>
             <SubMenu
               key="sub2"
@@ -59,13 +57,7 @@ export default class Home extends PureComponent {
         <Layout>
           <Header style={{ background: '#fff', padding: 0 }} />
           <Content style={{ margin: '0 16px' }}>
-            <Breadcrumb style={{ margin: '16px 0' }}>
-              <Breadcrumb.Item>User</Breadcrumb.Item>
-              <Breadcrumb.Item>Bill</Breadcrumb.Item>
-            </Breadcrumb>
-            <div style={{ padding: 24, background: '#fff', minHeight: 360 }}>
-              Bill is a cat.
-            </div>
+            {this.props.children}
           </Content>
           <Footer style={{ textAlign: 'center' }}>
             Ant Design ©2018 Created by Ant UED
