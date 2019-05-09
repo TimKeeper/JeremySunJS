@@ -5,9 +5,9 @@ import React, { PureComponent, Suspense, lazy } from 'react'
 // const Second = lazy(() => import('../compontents/second/index'))
 // const Third = lazy(() => import('../compontents/third/index'))
 import Home from '../compontents/home/index'
-import First from '../compontents/first/index'
-import Second from '../compontents/second/index'
-import Third from '../compontents/third/index'
+import JeremySun from '../compontents/JeremySun/index'
+import asyncReturn from '../compontents/JavaScript/asyncReturn/index'
+import reactScroll from '../compontents/React/scroll/index'
 
 
 
@@ -17,9 +17,9 @@ export default class AppRouter extends PureComponent {
 			<Router>
 				<Suspense fallback={<div>Loading...</div>}>
 					<Home>
-						<Route exact path="/" component={First}/>
-						<Route path="/second" component={Second}/>
-						<Route path="/third" component={Third}/>
+						<Route exact path="/" component={JeremySun}/>
+						<Route path="/asyncReturn" component={asyncReturn}/>
+						<Route path="/reactScroll" component={reactScroll}/>
 					</Home>
 				</Suspense>
 			</Router>

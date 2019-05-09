@@ -18,10 +18,10 @@ export default class Home extends PureComponent {
 		})
   }
   
-  changeRoute = (route) => {
-    // this.props.history.push(route.key)
-    console.log(route) 
-  }
+  // changeRoute = (route) => {
+  //   this.props.history.push(route.key)
+  //   console.log(route) 
+  // }
 	
 	render () {
 		return (
@@ -31,27 +31,35 @@ export default class Home extends PureComponent {
           collapsed={this.state.collapsed}
           onCollapse={this.onCollapse}
         >
-          <Link to='/' className="logo">JeremySun</Link>
+          {/* <Link to='/' className="logo">JeremySun</Link> */}
           <Menu theme="dark" defaultSelectedKeys={['1']} mode="inline" onClick={this.changeRoute}>
+            <Menu.Item key="9">
+              <Icon type="home" />
+              <span>JeremySun</span>
+              <Link to='/'></Link>
+            </Menu.Item>
             <SubMenu
               key="sub1"
-              title={<span><Icon type="user" /><span>User</span></span>}
+              title={<span><Icon type="html5" /><span>JavaScript</span></span>}
             >
-              <Menu.Item key="about"><Link to='/first'>first</Link></Menu.Item>
-              <Menu.Item key="4"><Link to='/second'>second</Link></Menu.Item>
-              <Menu.Item key="5"><Link to='/third'>third</Link></Menu.Item>
+              <Menu.Item key="asyncReturn"><Link to='/asyncReturn'>asyncReturn</Link></Menu.Item>
             </SubMenu>
             <SubMenu
               key="sub2"
-              title={<span><Icon type="team" /><span>Team</span></span>}
+              title={<span><Icon type="apple" /><span>React</span></span>}
             >
-              <Menu.Item key="6">Team 1</Menu.Item>
-              <Menu.Item key="8">Team 2</Menu.Item>
+              <Menu.Item key="reactScroll"><Link to='/reactScroll'>reactScroll</Link></Menu.Item>
             </SubMenu>
-            <Menu.Item key="9">
-              <Icon type="file" />
-              <span>File</span>
-            </Menu.Item>
+            <SubMenu
+              key="sub3"
+              title={<span><Icon type="android" /><span>Vue</span></span>}
+            >
+            </SubMenu>
+            <SubMenu
+              key="sub4"
+              title={<span><Icon type="wechat" /><span>小程序</span></span>}
+            >
+            </SubMenu>
           </Menu>
         </Sider>
         <Layout>
@@ -60,7 +68,7 @@ export default class Home extends PureComponent {
             {this.props.children}
           </Content>
           <Footer style={{ textAlign: 'center' }}>
-            Ant Design ©2018 Created by Ant UED
+            JeremySun ©2019 Created by Ant UED
           </Footer>
         </Layout>
       </Layout>
